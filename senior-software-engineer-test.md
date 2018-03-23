@@ -1,7 +1,7 @@
 
-#[Delivery Hero - PANDORA] Test for Senior Software Engineer
+# [Delivery Hero - PANDORA] Test for Senior Software Engineer
 
-With this test, we want to create an environment where you can demonstrate your engineering skills by creating a production-ready solution for a given challenge.  Please do not disclose this challenge or your implementation on the internet.
+With this test, we want to create an environment where you can demonstrate your engineering skills by creating a production-ready solution for a given challenge.  We recommend you to do not disclose the implementation fo this challenge.
 
 ## Challenge
 Given a context of a microservice architecture, you have to implement a payment processor service that has to accept  5.000 order requests per minute, however, in order to process the payment you have to call a third-party to complete the financial transaction; This third-party responds each request in an average of 896ms and can only accept 3 simultaneous request. We encourage you to over-engineer your solution to show your potential, however, you have to attend the following criteria:
