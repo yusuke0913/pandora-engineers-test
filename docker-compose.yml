@@ -1,0 +1,13 @@
+version: '3'
+services:
+  //please do not modify the payment service definition
+  payment:
+    image: "foodora/eng-test-payment-process:latest"
+    networks:
+      pandora:
+        aliases:
+          - payment
+  //you can add your services here
+  
+networks:
+  pandora:

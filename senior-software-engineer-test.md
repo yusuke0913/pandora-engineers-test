@@ -1,7 +1,7 @@
 
 # [Delivery Hero - PANDORA] Test for Senior Software Engineer
 
-With this test, we want to create an environment where you can demonstrate your engineering skills by creating a production-ready solution for a given challenge.  We recommend you to do not disclose the implementation fo this challenge.
+With this test, we want to create an environment where you can demonstrate your engineering skills by creating a production-ready solution for a given challenge.  We recommend you to do not disclose the implementation of this challenge.
 
 ## Challenge
 Given a context of a microservice architecture, you have to implement a payment processor service that has to accept  5.000 order requests per minute, however, in order to process the payment you have to call a third-party to complete the financial transaction; This third-party responds each request in an average of 896ms and can only accept 3 simultaneous request. We encourage you to over-engineer your solution to show your potential, however, you have to attend the following criteria:
@@ -14,7 +14,7 @@ Given a context of a microservice architecture, you have to implement a payment 
 	- An explanation of the architecture decisions
 	- If using libraries/frameworks/microframeworks, an explanation why you did choose each of them and the possible alternatives.
 	- How to run the tests and the projects
-* The project **must** run using docker-compose to provision the infrastructure
+* The project **must** run using docker compose (see ./docker-compose.yml file) to provision the infrastructure
 * You are free to choose your infrastructure/services, however, they **must** be open source and run over docker.
 * To delivery the test we require you to create a private repository on Bitbucket and give us reading access to the email danilo.freitas@foodora.com . The name of the repository has to be like the following: firstname-lastname-pandora-snr-sfw-eng-MM-YYYY.
 
@@ -22,7 +22,7 @@ Given a context of a microservice architecture, you have to implement a payment 
 ##### You have to implement the following endpoint to accept orders:
 
 ```
-HOST: http://localhost/
+HOST: http://[your-service-name]/
 # Software Engineer Test
 
 ## Order [/order]
@@ -103,12 +103,12 @@ HOST: http://localhost/
 ##### You have to call the following endpoint in order to process the payment:
 
 ```
-HOST: http://payment.thirdparty/
+HOST: http://payment:9090/
 
 # Third party payment service
-You have to assume that you would not have it implemented, however this service should be either mocked or covered by tests
+You have to use the service that was provided in the docker-compose.yml file.
 
-## Payment [/pay]
+## Payment [/]
 
 ### Process Payment [POST]
 
@@ -129,7 +129,7 @@ You have to assume that you would not have it implemented, however this service 
 
         {
             "transaction": "71d13d76-be40-45ca-b393-905f4f776bbe"
-            "status": "payd"
+            "status": "paid"
         }
         
 + Response 400 (application/json)
@@ -144,6 +144,8 @@ You have to assume that you would not have it implemented, however this service 
             "order": "d9085704-6d89-4bc0-990c-a1359d652123"
             "status": "failed"
         }
+
++ Response 422 (application/json)
 
 + Response 500 (application/json)
 ```
